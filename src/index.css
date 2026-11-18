@@ -1,0 +1,618 @@
+:root {
+  --bg-obsidian: #080807;
+  --bg-elevated: #11110f;
+  --bg-glass: rgba(10, 10, 9, 0.82);
+  --text-ivory: #f4f1ea;
+  --text-stone: #9c978c;
+  --accent-brass: #c5a059;
+  --border-hairline: rgba(244, 241, 234, 0.12);
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-obsidian);
+  color: var(--text-ivory);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-ivory);
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+::selection {
+  background: var(--accent-brass);
+  color: #080807;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-brass);
+}
+
+/* Navigation */
+.atelier-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 4vw;
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.nav-brand {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-ivory);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.nav-link {
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-stone);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-brass);
+}
+
+.nav-badge {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-brass);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  padding: 0.4rem 0.9rem;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.48) contrast(1.1);
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 8, 7, 0.62) 0%,
+    rgba(8, 8, 7, 0.25) 50%,
+    var(--bg-obsidian) 100%
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 960px;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--accent-brass);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+  display: block;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6.6vw, 5.8rem);
+  font-weight: 300;
+  line-height: 1.04;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 0.88rem;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-stone);
+  max-width: 660px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--text-ivory);
+  text-decoration: none;
+  padding: 1rem 2.2rem;
+  border: 1px solid var(--accent-brass);
+  transition: all 0.35s ease;
+  cursor: pointer;
+  background: transparent;
+}
+
+.hero-cta:hover {
+  background: var(--accent-brass);
+  color: var(--bg-obsidian);
+}
+
+/* Architect Profile & Practice Section */
+.architect-section {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 7.5rem 4vw 5rem;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.portrait-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-elevated);
+}
+
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) brightness(0.92);
+}
+
+.portrait-caption {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-stone);
+}
+
+.architect-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.6vw, 3.3rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 1.75rem;
+}
+
+.first-person-copy {
+  font-size: 0.98rem;
+  font-weight: 300;
+  color: var(--text-stone);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.first-person-copy strong {
+  color: var(--text-ivory);
+  font-weight: 400;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.metric-value {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  color: var(--accent-brass);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.metric-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-stone);
+}
+
+/* Practice, Target Roles & Mobility Strip */
+.credentials-strip {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 3.5rem 4vw;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.credential-block h4 {
+  font-size: 0.66rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-brass);
+  margin-bottom: 0.85rem;
+  font-weight: 500;
+}
+
+.credential-primary {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-ivory);
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.credential-detail {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--text-stone);
+  line-height: 1.7;
+}
+
+.region-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.region-tag {
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-ivory);
+  border: 1px solid var(--border-hairline);
+  padding: 0.3rem 0.65rem;
+  background: var(--bg-obsidian);
+}
+
+/* Selected Estates Section */
+.commissions-section {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 7.5rem 4vw 4rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 300;
+}
+
+.estate-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+  margin-bottom: 7.5rem;
+}
+
+.estate-row.reverse {
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.estate-row.reverse .estate-media {
+  order: 2;
+}
+
+.estate-media {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border: 1px solid var(--border-hairline);
+  cursor: pointer;
+}
+
+.estate-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: brightness(0.88);
+}
+
+.estate-media:hover img {
+  transform: scale(1.04);
+}
+
+.estate-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.estate-desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-stone);
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+}
+
+.specs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.spec-pill {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-ivory);
+  border: 1px solid var(--border-hairline);
+  padding: 0.45rem 0.9rem;
+  background: var(--bg-elevated);
+}
+
+.dossier-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--accent-brass);
+  color: var(--accent-brass);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding-bottom: 0.4rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.dossier-btn:hover {
+  opacity: 0.75;
+}
+
+/* Architectural Methodology */
+.method-section {
+  max-width: 1320px;
+  margin: 0 auto 6rem;
+  padding: 4.5rem 4vw;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+
+.method-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+  color: var(--text-ivory);
+}
+
+.method-card p {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--text-stone);
+  line-height: 1.75;
+}
+
+/* Full-Page Editorial Dossier View (Uses Browser Back Button) */
+.dossier-page {
+  min-height: 100vh;
+  padding: 7.5rem 4vw 6rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.browser-hint {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-stone);
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.dossier-hero-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border: 1px solid var(--border-hairline);
+  margin: 2rem 0 3rem;
+}
+
+.logic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin: 2.5rem 0 3.5rem;
+}
+
+.logic-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  padding: 2.25rem;
+}
+
+.logic-box h4 {
+  font-size: 0.68rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent-brass);
+  margin-bottom: 1rem;
+}
+
+.logic-box p {
+  font-size: 0.94rem;
+  font-weight: 300;
+  color: var(--text-stone);
+  line-height: 1.85;
+}
+
+/* Studio / Creator Footer CTA */
+.studio-footer {
+  border-top: 1px solid var(--border-hairline);
+  padding: 6rem 4vw;
+  text-align: center;
+  background: var(--bg-elevated);
+}
+
+.studio-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.studio-sub {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--text-stone);
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+}
+
+.cta-button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.studio-btn-primary {
+  display: inline-block;
+  padding: 1rem 2.2rem;
+  background: var(--accent-brass);
+  color: var(--bg-obsidian);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--accent-brass);
+  transition: all 0.3s ease;
+}
+
+.studio-btn-primary:hover {
+  background: transparent;
+  color: var(--accent-brass);
+}
+
+.studio-btn-secondary {
+  display: inline-block;
+  padding: 1rem 2.2rem;
+  background: transparent;
+  color: var(--text-ivory);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--border-hairline);
+  transition: all 0.3s ease;
+}
+
+.studio-btn-secondary:hover {
+  border-color: var(--accent-brass);
+  color: var(--accent-brass);
+}
+
+@media (max-width: 900px) {
+  .architect-section,
+  .credentials-strip,
+  .estate-row,
+  .estate-row.reverse,
+  .method-grid,
+  .logic-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .estate-row.reverse .estate-media {
+    order: 0;
+  }
+
+  .estate-media,
+  .dossier-hero-img {
+    height: 340px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
